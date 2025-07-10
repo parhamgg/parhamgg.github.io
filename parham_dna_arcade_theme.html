@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parham Ghasemloo Gheidari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1e1e1e;
+      color: #eee;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .diamond-grid {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        linear-gradient(45deg, rgba(255,108,164,0.05) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(255,108,164,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 60s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    .floating-dna {
+      position: fixed;
+      top: 5%;
+      left: 5%;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 12px;
+      color: rgba(255,174,203, 0.08);
+      white-space: pre;
+      animation: floatDNA 45s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes floatDNA {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(400px, 300px); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      background: #2b2b2b;
+      padding: 2rem 2rem;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid #ff6ca4;
+      z-index: 10;
+    }
+
+    header.shrink {
+      padding: 0.5rem 1rem;
+    }
+
+    .title-block {
+      flex: 1;
+      min-width: 250px;
+      transition: all 0.3s ease;
+    }
+
+    .title-block h1 {
+      font-size: 1.6rem;
+      font-family: 'Press Start 2P', cursive;
+      color: #ff6ca4;
+    }
+
+    .title-block p {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: #ccc;
+    }
+
+    .profile {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffaecb;
+      background-color: #333;
+      transition: all 0.3s ease;
+    }
+
+    header.shrink .profile {
+      width: 80px;
+      height: 80px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      border-left: 3px solid #ffaecb;
+      padding-left: 1rem;
+      animation: fadeUp 0.8s ease-out both;
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      color: #ffb6d1;
+      margin-bottom: 1rem;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    a {
+      color: #ffaecb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ffdef0;
+      text-shadow: 0 0 6px #ffb6d1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+      border-top: 1px solid #444;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="diamond-grid"></div>
+  <div class="floating-dna">A G C T A G T C A A G G T T C C</div>
+
+  <header id="main-header">
+    <div class="title-block">
+      <h1>Parham Ghasemloo Gheidari</h1>
+      <p>PhD · Bioinformatics · AI · Citizen Science</p>
+    </div>
+    <img src="me.jpg" alt="Profile Photo" class="profile">
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>About Me</h2>
+      <p>I am a PhD candidate in Computer Science at McGill University...</p>
+    </section>
+    <section>
+      <h2>CV & Links</h2>
+      <ul>
+        <li><a href="#">Academic CV (PDF)</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Parham Ghasemloo Gheidari · Built with HTML & ❤️
+  </footer>
+
+  <audio id="hover-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_b601464f63.mp3" preload="auto"></audio>
+  <script>
+    const hoverSound = document.getElementById('hover-sound');
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('shrink', window.scrollY > 40);
+    });
+  </script>
+</body>
+</html>

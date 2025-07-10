@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parham Ghasemloo Gheidari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1e1e1e;
+      color: #eee;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(255,108,164,0.06) 3px, transparent 0),
+        radial-gradient(circle at 50% 50%, rgba(255,108,164,0.06) 3px, transparent 0),
+        radial-gradient(circle at 90% 90%, rgba(255,108,164,0.06) 3px, transparent 0);
+      background-size: 100px 100px;
+      animation: dnaDrift 40s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes dnaDrift {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: left;
+      padding: 2rem 2rem;
+      background: #2b2b2b;
+      border-bottom: 2px solid #ff6ca4;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    header.shrink {
+      padding: 0.5rem 1rem;
+    }
+
+    .title-block {
+      flex: 1;
+      min-width: 250px;
+      transition: all 0.3s ease;
+    }
+
+    .title-block .subtitle {
+      font-size: 1.2rem;
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+
+    header.shrink .title-block .subtitle {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .title-block h1 {
+      font-size: 1.6rem;
+      font-family: 'Press Start 2P', cursive;
+      color: #ff6ca4;
+    }
+
+    .title-block p {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: #ccc;
+    }
+
+    .profile {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffaecb;
+      background-color: #333;
+      transition: all 0.3s ease;
+    }
+
+    header.shrink .profile {
+      width: 80px;
+      height: 80px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      border-left: 3px solid #ffaecb;
+      padding-left: 1rem;
+      animation: fadeUp 0.8s ease-out both;
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      color: #ffb6d1;
+      margin-bottom: 1rem;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    a {
+      color: #ffaecb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ffdef0;
+      text-shadow: 0 0 6px #ffb6d1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+      border-top: 1px solid #444;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="main-header">
+    <div class="title-block">
+      <h1>Parham Ghasemloo Gheidari</h1>
+      <p class="subtitle">PhD · Bioinformatics · AI · Citizen Science</p>
+    </div>
+    <img src="me.jpg" alt="Profile Photo" class="profile">
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>About Me</h2>
+      <p>I am a PhD candidate in Computer Science at McGill University, working primarily in bioinformatics. My main research interests are computational biology, artificial intelligence, and citizen science games.</p>
+      <p>I am completing my doctorate under the supervision of Jérôme Waldispühl. I previously earned my BSc in Computer Engineering from Sharif University of Technology.</p>
+      <p>My bioinformatics research focuses on integrating algorithmic and statistical models with human-computer interaction. In particular, I study how large-scale human participation can inform and improve computational pipelines, such as those used for microbial phylogeny reconstruction.</p>
+      <p>My citizen science work centers on the development and analysis of gamified systems for biological data. One of my core projects, Borderlands Science, is a puzzle game embedded within Borderlands 3. This platform has collected over 130 million puzzle solutions from 4 million players and was recently featured in <i>Nature Biotechnology</i>.</p>
+    </section>
+
+    <section>
+      <h2>Publications</h2>
+      <ul>
+        <li><strong>Ghasemloo et al.</strong> "Improving microbial phylogeny with citizen science..." <i>Nature Biotechnology</i>, 2024</li>
+        <li><strong>Ghasemloo et al.</strong> "Learning the Game: Decoding Expert Players..." <i>FDG</i>, 2024</li>
+        <li>See more on <a href="https://scholar.google.com/citations?user=-gjBHJMAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Lab & Projects</h2>
+      <ul>
+        <li><a href="https://dnapuzzles.org" target="_blank">DNA Puzzles (Citizen Science Video Games)</a></li>
+        <li><a href="https://mcgill.ca/compute/bioinfo" target="_blank">Waldispühl Lab at McGill</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>CV & Links</h2>
+      <ul>
+        <li><a href="Parham_CV_PHD_2024.pdf" target="_blank">CV (PDF)</a></li>
+        <li><a href="https://www.linkedin.com/in/parham-ghasemloo" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/parhamgg" target="_blank">GitHub</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: parham.ghasemloogheidari [at] mail [dot] mcgill [dot] ca</p>
+      <p>Location: Montreal, QC, Canada</p>
+    </section>
+
+    <section>
+      <h2>Project Gallery</h2>
+      <p style="text-align:center;">
+        <img src="blslogo.png" alt="Borderlands Science" style="width:45%; margin: 0.5rem; border-radius: 8px;" />
+        <img src="bls.jpg" alt="Borderlands Science" style="width:45%; margin: 0.5rem; border-radius: 8px;" />
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Parham Ghasemloo Gheidari · Built with HTML & ❤️
+  </footer>
+
+  <audio id="hover-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_b601464f63.mp3" preload="auto"></audio>
+  <script>
+    const hoverSound = document.getElementById('hover-sound');
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('shrink', window.scrollY > 40);
+    });
+  </script>
+</body>
+</html>
