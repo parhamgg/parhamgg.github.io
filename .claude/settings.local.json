@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-Content -Path \"e:\\\\Webpage\\\\parhamgg.github.io\\\\index.html\" -Encoding Unicode)",
+      "Bash(Out-String)"
+    ]
+  }
+}
